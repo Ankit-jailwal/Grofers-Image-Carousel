@@ -89,7 +89,7 @@ grofers_carousel(
 * Vertical carousal
 * Infinite Scroll in carousal
 * Multiple images in view
-* 
+
 ## Screenshot
 
 ![alt text](https://github.com/Ankit-jailwal/Grofers-Image-Carousel/blob/master/example/assets/WhatsApp%20Image%202021-06-09%20at%204.29.11%20AM%20(1).jpeg)
