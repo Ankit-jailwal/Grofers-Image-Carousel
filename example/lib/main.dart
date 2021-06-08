@@ -15,7 +15,7 @@ class GrofersCarouselPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: grofers_carousel(
-          carousalPadding: 8,
+          carousalPadding: 4,
           autoplay: true,
           animationCurve: Curves.fastOutSlowIn,
           animationDuration: Duration(milliseconds: 1000),

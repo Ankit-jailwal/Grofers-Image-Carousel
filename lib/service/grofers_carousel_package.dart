@@ -10,6 +10,7 @@ class grofers_carousel extends StatefulWidget {
   final bool autoplay;
   final double carousalHeight;
   final double carousalWidth;
+  final double carousalRadius;
   final double carousalPadding;
   final Duration autoplayDuration;
   final void Function(int) onTap;
@@ -19,8 +20,9 @@ class grofers_carousel extends StatefulWidget {
     this.images,
     this.animationCurve = Curves.ease,
     this.animationDuration = const Duration(milliseconds: 300),
-    this.autoplay = true,
-    this.carousalPadding,
+    this.autoplay=false,
+    this.carousalRadius=0,
+    this.carousalPadding=0,
     this.carousalWidth = 300,
     this.carousalHeight = 200,
     this.autoplayDuration = const Duration(seconds: 2),
@@ -76,11 +78,11 @@ class _grofers_carouselState extends State<grofers_carousel> {
           (networkImage) {
         if (networkImage is ImageProvider) {
           return Padding(
-            padding: EdgeInsets.all(widget.carousalPadding!=null?widget.carousalPadding:0),
+            padding: EdgeInsets.all(widget.carousalPadding),
             child: FractionallySizedBox(
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(widget.carousalRadius)),
                   image: DecorationImage(
                     image: networkImage,
                     fit: BoxFit.cover,
@@ -91,7 +93,7 @@ class _grofers_carouselState extends State<grofers_carousel> {
           );
         } else if (networkImage is FadeInImage) {
           return ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(8.0)),
+            borderRadius: BorderRadius.all(Radius.circular(widget.carousalRadius)),
             child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -150,3 +152,5 @@ class _grofers_carouselState extends State<grofers_carousel> {
         );
   }
 }
+
+
