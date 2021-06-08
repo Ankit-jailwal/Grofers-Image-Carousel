@@ -9,8 +9,8 @@ class grofers_carousel extends StatefulWidget {
   final Duration animationDuration;
   final bool autoplay;
   final Duration autoplayDuration;
-  final void Function(int) onImageTap;
-  final void Function(int, int) onImageChange;
+  final void Function(int) onTap;
+  final void Function(int, int) onChange;
 
   grofers_carousel({
     this.images,
@@ -18,9 +18,9 @@ class grofers_carousel extends StatefulWidget {
     this.animationDuration = const Duration(milliseconds: 300),
     this.autoplay = true,
     this.autoplayDuration = const Duration(seconds: 2),
-    this.onImageTap,
+    this.onTap,
     this.defaultImage,
-    this.onImageChange,
+    this.onChange,
   });
   @override
   _grofers_carouselState createState() => _grofers_carouselState();
@@ -119,18 +119,18 @@ class _grofers_carouselState extends State<grofers_carousel> {
                 controller: _controller,
                 children: listImages,
                 onPageChanged: (currentPage) {
-                  if (widget.onImageChange != null) {
-                    widget.onImageChange(_currentImageIndex, currentPage);
+                  if (widget.onChange != null) {
+                    widget.onChange(_currentImageIndex, currentPage);
                   }
                   _currentImageIndex = currentPage;
                 },
               );
-              if (widget.onImageTap == null) {
+              if (widget.onTap == null) {
                 return pageView;
               }
               return GestureDetector(
                 child: pageView,
-                  onTap: () => widget.onImageTap(_currentImageIndex),
+                  onTap: () => widget.onTap(_currentImageIndex),
               );
             },
           ),
