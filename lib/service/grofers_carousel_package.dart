@@ -114,7 +114,7 @@ class _grofers_carouselState extends State<grofers_carousel> {
     ).toList()
         : [Container(
         decoration: BoxDecoration(
-          borderRadius:BorderRadius.all( Radius.circular(8.0)),
+          borderRadius:BorderRadius.all( Radius.circular(widget.carousalRadius)),
           image: DecorationImage(
             image: widget.defaultImage,
             fit: BoxFit.cover,
