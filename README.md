@@ -1,4 +1,4 @@
-# grofers_carousel
+# GROFERS IMAGE CAROUSEL
 
 A flutter package built to implement image carousel .
 
