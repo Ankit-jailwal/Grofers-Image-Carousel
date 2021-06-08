@@ -2,7 +2,7 @@
 
 A Flutter package to implement image carousel. 
 
-![alt text](https://images-na.ssl-images-amazon.com/images/I/414SsaFGfwL.png)
+![alt text](https://mir-s3-cdn-cf.behance.net/projects/404/8e2c2329927983.560adf7bbb304.png)
 
 ## Features
 
@@ -25,8 +25,10 @@ A Flutter package to implement image carousel.
 ## Installation
 
 Add 
-`grofers_carousel:
-    path: [path of grofers_carousel package]` 
+```dart
+grofers_carousel:
+    path: [path of grofers_carousel package]
+```
 to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
