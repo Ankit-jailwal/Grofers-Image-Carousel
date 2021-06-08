@@ -8,6 +8,9 @@ class grofers_carousel extends StatefulWidget {
   final Curve animationCurve;
   final Duration animationDuration;
   final bool autoplay;
+  final double carousalHeight;
+  final double carousalWidth;
+  final double carousalPadding;
   final Duration autoplayDuration;
   final void Function(int) onTap;
   final void Function(int, int) onChange;
@@ -17,6 +20,9 @@ class grofers_carousel extends StatefulWidget {
     this.animationCurve = Curves.ease,
     this.animationDuration = const Duration(milliseconds: 300),
     this.autoplay = true,
+    this.carousalPadding,
+    this.carousalWidth = 300,
+    this.carousalHeight = 200,
     this.autoplayDuration = const Duration(seconds: 2),
     this.onTap,
     this.defaultImage,
@@ -69,12 +75,17 @@ class _grofers_carouselState extends State<grofers_carousel> {
         ? widget.images.map<Widget>(
           (networkImage) {
         if (networkImage is ImageProvider) {
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(8.0)),
-              image: DecorationImage(
-                image: networkImage,
-                fit: BoxFit.cover,
+          return Padding(
+            padding: EdgeInsets.all(widget.carousalPadding!=null?widget.carousalPadding:0),
+            child: FractionallySizedBox(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  image: DecorationImage(
+                    image: networkImage,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           );
@@ -112,6 +123,8 @@ class _grofers_carouselState extends State<grofers_carousel> {
     ];
     return
         Container(
+          height: widget.carousalHeight,
+          width: widget.carousalWidth,
           child: Builder(
             builder: (_) {
               Widget pageView = PageView(
