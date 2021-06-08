@@ -11,8 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.0
+  grofers_carousel:
+    path: ../
 
 dev_dependencies:
   flutter_test:
