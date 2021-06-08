@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:grofers_carousel/service/grofers_carousel_package.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:toast/toast.dart';
@@ -14,7 +15,7 @@ class _homePageState extends State<homePage> {
   double _radius = 8;
   double _height = 200;
   double _width = 400;
-  bool _autoPlay = false;
+  bool _autoPlay = true;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -94,7 +95,7 @@ class _homePageState extends State<homePage> {
                     showTicks: true,
                     showLabels: true,
                     enableTooltip: true,
-                    miRefnorTicksPerInterval: 1,
+                    minorTicksPerInterval: 1,
                     onChanged: (dynamic value) {
                       setState(() {
                         _radius = value;
