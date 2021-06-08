@@ -4,6 +4,8 @@ A Flutter package to implement image carousel.
 
 [![Click here to view package demo](https://mir-s3-cdn-cf.behance.net/projects/404/8e2c2329927983.560adf7bbb304.png)](https://youtu.be/HESKwQgtAHM)
 
+Click on Grofers logo to view package demo.
+
 ## Features
 
 * Auto play (boolean)
