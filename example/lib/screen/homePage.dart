@@ -16,13 +16,23 @@ class _homePageState extends State<homePage> {
   double _height = 200;
   double _width = 400;
   bool _autoPlay = true;
+  int _autoPlayDuration=2;
+  int _animationDuration=1;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.arrow_back),
+          leading: IconButton(
+              onPressed: (){
+                Toast.show(
+                    "Welcome to Grofers image carousel",
+                    context,
+                    duration: Toast.LENGTH_SHORT,
+                    gravity: Toast.BOTTOM);
+              },
+              icon: Image.asset("assets/grofersLogo.png",height: 30,)),
           backgroundColor: Colors.black,
           title: Text(
             "Grofers Image Carousel",
@@ -40,8 +50,8 @@ class _homePageState extends State<homePage> {
                 carousalRadius: _radius,
                 autoplay: _autoPlay,
                 animationCurve: Curves.fastOutSlowIn,
-                animationDuration: Duration(seconds: 1),
-                autoplayDuration: Duration(seconds: 2),
+                animationDuration: Duration(seconds: _animationDuration),
+                autoplayDuration: Duration(seconds: _autoPlayDuration),
                 onTap: (index) {
                   //TODO space to implement function
                   //Example
@@ -132,6 +142,53 @@ class _homePageState extends State<homePage> {
                       });
                     },
                   ),
+                  SizedBox(height:15,),
+                  Container(
+                    width: screenSize.width*0.91,
+                    height: screenSize.height*0.1,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow:[BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        blurRadius: 5.0,
+                        offset: Offset(0, 3),
+                      )]
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: FlutterSwitch(
+                            width: screenSize.width*0.14,
+                            height: screenSize.height*0.05,
+                            toggleSize: screenSize.height*0.03,
+                            value: _autoPlay,
+                            borderRadius: 30.0,
+                            padding: 6.0,
+                            onToggle: (val) {
+                              Toast.show(
+                                  "Autoplay is turned ${val?"ON":"OFF"}",
+                                  context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                              setState(() {
+                                _autoPlay = val;
+                                _autoPlayDuration=2;
+                                _animationDuration=val?1:0;
+                              });
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top:8.0,bottom: 8.0,right: 20),
+                          child: Text("AUTOPLAY",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500),),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10,)
                 ],
               )
             ],
