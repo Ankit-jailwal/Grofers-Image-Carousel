@@ -2,7 +2,7 @@
 
 A Flutter package to implement image carousel. 
 
-![alt text](https://github.com/Ankit-jailwal/Grofers-Image-Carousel/blob/master/example/assets/grofersLogo.png)
+![alt text](https://images-na.ssl-images-amazon.com/images/I/414SsaFGfwL.png)
 
 ## Features
 
