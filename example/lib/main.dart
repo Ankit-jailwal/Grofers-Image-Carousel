@@ -17,7 +17,7 @@ class GrofersCarouselPage extends StatelessWidget {
       child: SplashScreen(
           seconds: 3,
           navigateAfterSeconds: new homePage(),
-          title: new Text('Welcome In Grofers',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500),),
+          title: new Text('Welcome to Grofers',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500),),
           image: new Image.asset('assets/grofersLogo.png'),
           backgroundColor: Color(0xfff27437),
           styleTextUnderTheLoader: new TextStyle(),
