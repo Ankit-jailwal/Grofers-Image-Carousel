@@ -27,22 +27,58 @@ class grofers_carousel extends StatefulWidget {
 }
 
 class _grofers_carouselState extends State<grofers_carousel> {
+  Timer timer;
+  int _currentImageIndex = 0;
+  PageController _controller = PageController();
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.images != null && widget.images.isNotEmpty) {
+      if (widget.autoplay) {
+        timer = Timer.periodic(widget.autoplayDuration, (_){
+          if (_controller.hasClients) {
+            if (_controller.page.round() == widget.images.length - 1) {
+              _controller.animateToPage(0,
+                duration: widget.animationDuration,
+                curve: widget.animationCurve,
+              );
+            } else {
+              _controller.nextPage(
+                  duration: widget.animationDuration,
+                  curve: widget.animationCurve);
+            }
+          }
+        });
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _controller = null;
+    timer?.cancel();
+    timer = null;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> listImages = (widget.images != null && widget.images.isNotEmpty)
         ? widget.images.map<Widget>(
-          (netImage) {
-        if (netImage is ImageProvider) {
+          (networkImage) {
+        if (networkImage is ImageProvider) {
           return Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(8.0)),
               image: DecorationImage(
-                image: netImage,
+                image: networkImage,
                 fit: BoxFit.cover,
               ),
             ),
           );
-        } else if (netImage is FadeInImage) {
+        } else if (networkImage is FadeInImage) {
           return ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
             child: Container(
@@ -56,10 +92,10 @@ class _grofers_carouselState extends State<grofers_carousel> {
                     ],
                   ),
                 ),
-                child: netImage),
+                child: networkImage),
           );
         } else {
-          return netImage;
+          return networkImage;
         }
       },
     ).toList()
@@ -67,7 +103,6 @@ class _grofers_carouselState extends State<grofers_carousel> {
         decoration: BoxDecoration(
           borderRadius:BorderRadius.all( Radius.circular(8.0)),
           image: DecorationImage(
-            //colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
             image: widget.defaultImage,
             fit: BoxFit.cover,
           ),
@@ -77,7 +112,28 @@ class _grofers_carouselState extends State<grofers_carousel> {
     ];
     return
         Container(
-
+          child: Builder(
+            builder: (_) {
+              Widget pageView = PageView(
+                physics: AlwaysScrollableScrollPhysics(),
+                controller: _controller,
+                children: listImages,
+                onPageChanged: (currentPage) {
+                  if (widget.onImageChange != null) {
+                    widget.onImageChange(_currentImageIndex, currentPage);
+                  }
+                  _currentImageIndex = currentPage;
+                },
+              );
+              if (widget.onImageTap == null) {
+                return pageView;
+              }
+              return GestureDetector(
+                child: pageView,
+                  onTap: () => widget.onImageTap(_currentImageIndex),
+              );
+            },
+          ),
         );
   }
 }
