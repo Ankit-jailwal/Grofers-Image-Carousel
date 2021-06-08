@@ -2,7 +2,7 @@
 
 A Flutter package to implement image carousel.
 
-[![Click here to view package demo](https://mir-s3-cdn-cf.behance.net/projects/404/8e2c2329927983.560adf7bbb304.png)](https://youtu.be/HESKwQgtAHM)
+[![Click here to view package demo](https://static.wikia.nocookie.net/logopedia/images/b/be/Grofers-logo-png-1.png)](https://youtu.be/5OEMfwd_crQ)
 
 Click on Grofers logo to view package demo.
 
@@ -82,7 +82,14 @@ grofers_carousel(
                     'http://fpae.pt/backup/20181025/wp/wp-content/plugins/post-slider-carousel/images/no-image-available-grid.jpg'), //This will be used when there is no images in above list
               ),
 ```
+## Other Features that can be implemented
 
+* Enlarge central image
+* Image position indicator
+* Vertical carousal
+* Infinite Scroll in carousal
+* Multiple images in view
+* 
 ## Screenshot
 
 ![alt text](https://github.com/Ankit-jailwal/Grofers-Image-Carousel/blob/master/example/assets/WhatsApp%20Image%202021-06-09%20at%204.29.11%20AM%20(1).jpeg)
