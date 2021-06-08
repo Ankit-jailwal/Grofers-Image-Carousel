@@ -4,7 +4,7 @@ A Flutter package to implement image carousel.
 
 [![Click here to view package demo](https://static.wikia.nocookie.net/logopedia/images/b/be/Grofers-logo-png-1.png)](https://youtu.be/5OEMfwd_crQ)
 
-Click on Grofers logo to view package demo.
+### Click on Grofers logo to view package demo.
 
 ## Features
 
