@@ -1,7 +1,7 @@
 name: grofers_carousel
 description: A flutter package built to implement image carousel .
 version: 0.0.1
-homepage:
+homepage: https://ankitjailwal-80792.firebaseapp.com/#/
 
 environment:
   sdk: ">=2.10.0 <3.0.0"
