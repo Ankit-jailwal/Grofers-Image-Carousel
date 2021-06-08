@@ -1,8 +1,8 @@
 # GROFERS IMAGE CAROUSEL
 
-A Flutter package to implement image carousel. 
+A Flutter package to implement image carousel.
 
-![alt text](https://mir-s3-cdn-cf.behance.net/projects/404/8e2c2329927983.560adf7bbb304.png)
+[![Click here to view package demo](https://mir-s3-cdn-cf.behance.net/projects/404/8e2c2329927983.560adf7bbb304.png)](https://youtu.be/HESKwQgtAHM)
 
 ## Features
 
