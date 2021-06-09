@@ -45,10 +45,10 @@ Simply create a `grofers_carousel` widget, and pass the required params.
 ## Example
 ```dart
 grofers_carousel(
-                carousalPadding: _padding,
-                carousalHeight: _height,
-                carousalWidth: _width,
-                carousalRadius: _radius,
+                carouselPadding: _padding,
+                carouselHeight: _height,
+                carouselWidth: _width,
+                carouselRadius: _radius,
                 autoplay: _autoPlay,
                 animationCurve: Curves.fastOutSlowIn,
                 animationDuration: Duration(seconds: _animationDuration),
