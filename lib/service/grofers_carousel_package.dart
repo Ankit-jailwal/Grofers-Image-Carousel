@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:flutter/material.dart';
 
 class grofers_carousel extends StatefulWidget {
@@ -16,6 +15,11 @@ class grofers_carousel extends StatefulWidget {
   final void Function(int) onTap;
   final void Function(int, int) onChange;
 
+  final bool enlargeCenterImage; //TODO: This method will enlarge carousel image in focus.
+  final bool carousalIndicator; //TODO: This method will provide dot indication of current index of carousel.
+  final bool verticalCarousel; //TODO: This method will provide functionality for vertical image carousel.
+  final bool infiniteScroll; //TODO: This method will enable seamless scrolling of carousel images with no end point.
+  final bool multipleImagesInView; //TODO: This method will be used to display multiple images in view.
   grofers_carousel({
     this.images,
     this.animationCurve = Curves.ease,
@@ -29,6 +33,13 @@ class grofers_carousel extends StatefulWidget {
     this.onTap,
     this.defaultImage,
     this.onChange,
+
+    //TODO methods
+    this.enlargeCenterImage,
+    this.carousalIndicator,
+    this.verticalCarousel,
+    this.infiniteScroll,
+    this.multipleImagesInView,
   });
   @override
   _grofers_carouselState createState() => _grofers_carouselState();
