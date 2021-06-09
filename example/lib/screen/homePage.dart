@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:grofers_carousel/service/grofers_carousel_package.dart';
+import 'package:grofers_carousel/grofers_carousel.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:toast/toast.dart';
 
@@ -44,10 +44,10 @@ class _homePageState extends State<homePage> {
           child: Column(
             children: [
               grofers_carousel(
-                carousalPadding: _padding,
-                carousalHeight: _height,
-                carousalWidth: _width,
-                carousalRadius: _radius,
+                carouselPadding: _padding,
+                carouselHeight: _height,
+                carouselWidth: _width,
+                carouselRadius: _radius,
                 autoplay: _autoPlay,
                 animationCurve: Curves.fastOutSlowIn,
                 animationDuration: Duration(seconds: _animationDuration),

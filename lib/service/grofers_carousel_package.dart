@@ -8,10 +8,10 @@ class grofers_carousel extends StatefulWidget {
   final Curve animationCurve;
   final Duration animationDuration;
   final bool autoplay;
-  final double carousalHeight;
-  final double carousalWidth;
-  final double carousalRadius;
-  final double carousalPadding;
+  final double carouselHeight;
+  final double carouselWidth;
+  final double carouselRadius;
+  final double carouselPadding;
   final Duration autoplayDuration;
   final void Function(int) onTap;
   final void Function(int, int) onChange;
@@ -21,10 +21,10 @@ class grofers_carousel extends StatefulWidget {
     this.animationCurve = Curves.ease,
     this.animationDuration = const Duration(milliseconds: 300),
     this.autoplay=false,
-    this.carousalRadius=0,
-    this.carousalPadding=0,
-    this.carousalWidth = 300,
-    this.carousalHeight = 200,
+    this.carouselRadius=0,
+    this.carouselPadding=0,
+    this.carouselWidth = 300,
+    this.carouselHeight = 200,
     this.autoplayDuration = const Duration(seconds: 2),
     this.onTap,
     this.defaultImage,
@@ -78,11 +78,11 @@ class _grofers_carouselState extends State<grofers_carousel> {
           (networkImage) {
         if (networkImage is ImageProvider) {
           return Padding(
-            padding: EdgeInsets.all(widget.carousalPadding),
+            padding: EdgeInsets.all(widget.carouselPadding),
             child: FractionallySizedBox(
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(widget.carousalRadius)),
+                  borderRadius: BorderRadius.all(Radius.circular(widget.carouselRadius)),
                   image: DecorationImage(
                     image: networkImage,
                     fit: BoxFit.cover,
@@ -93,7 +93,7 @@ class _grofers_carouselState extends State<grofers_carousel> {
           );
         } else if (networkImage is FadeInImage) {
           return ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(widget.carousalRadius)),
+            borderRadius: BorderRadius.all(Radius.circular(widget.carouselRadius)),
             child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -114,7 +114,7 @@ class _grofers_carouselState extends State<grofers_carousel> {
     ).toList()
         : [Container(
         decoration: BoxDecoration(
-          borderRadius:BorderRadius.all( Radius.circular(widget.carousalRadius)),
+          borderRadius:BorderRadius.all( Radius.circular(widget.carouselRadius)),
           image: DecorationImage(
             image: widget.defaultImage,
             fit: BoxFit.cover,
@@ -125,8 +125,8 @@ class _grofers_carouselState extends State<grofers_carousel> {
     ];
     return
         Container(
-          height: widget.carousalHeight,
-          width: widget.carousalWidth,
+          height: widget.carouselHeight,
+          width: widget.carouselWidth,
           child: Builder(
             builder: (_) {
               Widget pageView = PageView(
